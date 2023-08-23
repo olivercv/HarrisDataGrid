@@ -15,7 +15,7 @@ export class AppComponent {
   scrollMode = 'vertical';
   objRowDataStr: any;
   objColDefsStr: any;
-  wrapperStyles = '';
+  wrapperStyles = 'width:100%; height: 30%;';
 
   // patients json data 
   rowData: any[] = [
@@ -82,17 +82,8 @@ export class AppComponent {
 
   changeScroll() {
     
-    switch(this.scrollMode) {
-      case 'none':
-        this.wrapperStyles = 'overflow-x: hidden; overflow-y: hidden;';
-        break;
-      case 'both':
-        this.wrapperStyles = '';
-        break;
-      default:
-        this.wrapperStyles = 'overflow-x: hidden;';
-    }
- 
+    
+    
   }
   
 
@@ -122,7 +113,9 @@ export class AppComponent {
     params.columnApi.setColumnsVisible(columnsToShow, true);
     params.columnApi.setColumnsVisible(columnsToHide, false);
     // fill out any available space to ensure there are no gaps
-    params.api.sizeColumnsToFit();
+    if(this.scrollMode == 'vertical'){
+      params.api.sizeColumnsToFit();
+    }
    
   }
 

@@ -10,3 +10,12 @@ html, body {
     -webkit-overflow-scrolling: touch;
 }
 
+.vertical {
+    width:100%; height: 30%; overflow-x: hidden;
+}
+.both {
+    width:98%; height: 30%;
+}
+.none {
+    width:99%; height: 30%; overflow-x: hidden; overflow-y: hidden;
+}
