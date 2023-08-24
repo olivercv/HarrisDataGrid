@@ -69,33 +69,33 @@ export class AppComponent {
   };
 
   // date formatting
-  dateFormatter(params: any) {
-    var date = new Date(params.value);
-    var day = date.getDate().toString().padStart(2, '0');
-    var month = (date.getMonth() + 1).toString().padStart(2, '0');
-    var year = date.getFullYear().toString();
-    var hourNum = date.getHours() % 12;
-    var hour = (hourNum === 0 ? 12 : hourNum).toString().padStart(2, '0');
-    var min = date.getMinutes().toString().padStart(2, '0');
-    var sec = date.getSeconds().toString().padStart(2, '0');
-    var amPM = date.getHours() < 12 ? 'AM' : 'PM';
+  public dateFormatter(params: any): string {
+    let date = new Date(params.value);
+    let day = date.getDate().toString().padStart(2, '0');
+    let month = (date.getMonth() + 1).toString().padStart(2, '0');
+    let year = date.getFullYear().toString();
+    let hourNum = date.getHours() % 12;
+    let hour = (hourNum === 0 ? 12 : hourNum).toString().padStart(2, '0');
+    let min = date.getMinutes().toString().padStart(2, '0');
+    let sec = date.getSeconds().toString().padStart(2, '0');
+    let amPM = date.getHours() < 12 ? 'AM' : 'PM';
     return ( day +'/' +month +'/' +year +' ' +hour +':' +min +' ' +amPM);
   }
   
   // run when Grid Size event changed
-  onGridSizeChanged(params: GridSizeChangedEvent) {
+  public onGridSizeChanged(params: GridSizeChangedEvent): void {
     // get the current grids width
-    var gridWidth = document.getElementById('grid-wrapper')!.offsetWidth;
+    let gridWidth = document.getElementById('grid-wrapper')!.offsetWidth;
     // keep track of which columns to hide/show
-    var columnsToShow = [];
-    var columnsToHide = [];
+    let columnsToShow = [];
+    let columnsToHide = [];
     // iterate over all columns (visible or not) and work out
     // now many columns can fit (based on their minWidth)
-    var totalColsWidth = 0;
-    var allColumns = params.columnApi.getColumns();
+    let totalColsWidth = 0;
+    let allColumns = params.columnApi.getColumns();
     if (allColumns && allColumns.length > 0) {
-      for (var i = 0; i < allColumns.length; i++) {
-        var column = allColumns[i];
+      for (let i = 0; i < allColumns.length; i++) {
+        let column = allColumns[i];
         totalColsWidth += column.getMinWidth() || 0;
         if (totalColsWidth > gridWidth) {
           columnsToHide.push(column.getColId());
@@ -115,7 +115,7 @@ export class AppComponent {
    
   }
 
-  updateGrid() {
+  public updateGrid(): void {
     // update patients data from textbox change string to Json format
     this.rowData = JSON.parse(this.objRowDataStr);
     // update grid column definition form textbox change string to Json format
