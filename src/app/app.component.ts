@@ -36,18 +36,7 @@ export class AppComponent {
     { headerName: 'PATIENT NAME', field: 'patientName', sortable: true, headerCheckboxSelection: true, checkboxSelection: true, showDisabledCheckboxes: true, minWidth: 250},
     { headerName: 'RESOURCE', field: 'resource', sortable: true, minWidth: 250 },
     { headerName: 'APPT TYPE', field: 'apptType', sortable: true, minWidth: 150 },
-    { headerName: 'APPT TIME', field: 'apptTime', cellClass: 'dateISO', sortable: true, minWidth: 150, valueFormatter: (params) => {
-      var date = new Date(params.value);
-      var day = date.getDate().toString().padStart(2, '0');
-      var month = (date.getMonth() + 1).toString().padStart(2, '0');
-      var year = date.getFullYear().toString();
-      var hourNum = date.getHours() % 12;
-      var hour = (hourNum === 0 ? 12 : hourNum).toString().padStart(2, '0');
-      var min = date.getMinutes().toString().padStart(2, '0');
-      var sec = date.getSeconds().toString().padStart(2, '0');
-      var amPM = date.getHours() < 12 ? 'AM' : 'PM';
-      return ( day +'/' +month +'/' +year +' ' +hour +':' +min +' ' +amPM);
-    } },
+    { headerName: 'APPT TIME', field: 'apptTime', cellClass: 'dateISO', sortable: true, minWidth: 150, valueFormatter: this.dateFormatter},
     { headerName: 'STATUS', field: 'status', sortable: true, minWidth: 300 },
     { headerName: 'WAIT', field: 'wait', sortable: true, minWidth: 150 }
   ];
@@ -79,14 +68,21 @@ export class AppComponent {
     resizable: true,
   };
 
-
-  changeScroll() {
-    
-    
-    
+  // date formatting
+  dateFormatter(params: any) {
+    var date = new Date(params.value);
+    var day = date.getDate().toString().padStart(2, '0');
+    var month = (date.getMonth() + 1).toString().padStart(2, '0');
+    var year = date.getFullYear().toString();
+    var hourNum = date.getHours() % 12;
+    var hour = (hourNum === 0 ? 12 : hourNum).toString().padStart(2, '0');
+    var min = date.getMinutes().toString().padStart(2, '0');
+    var sec = date.getSeconds().toString().padStart(2, '0');
+    var amPM = date.getHours() < 12 ? 'AM' : 'PM';
+    return ( day +'/' +month +'/' +year +' ' +hour +':' +min +' ' +amPM);
   }
   
-
+  // run when Grid Size event changed
   onGridSizeChanged(params: GridSizeChangedEvent) {
     // get the current grids width
     var gridWidth = document.getElementById('grid-wrapper')!.offsetWidth;
