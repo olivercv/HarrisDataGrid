@@ -1,0 +1,12 @@
+[
+    { "patientName": "Francis, Henry", "resource": "Mc Coy Henry", "apptType": "Sick Visit", "apptTime": "2020-05-30T10:01:00" , "status": "Ready for Provider 9:26 AM", "wait": "00:05" },
+    { "patientName": "Murphy, Catrine", "resource": "Mc Coy Henry", "apptType": "Sick Visit", "apptTime":"2015-04-21T16:30:00" , "status": "", "wait": "" },
+    { "patientName": "Murphy, Alicia", "resource": "Anna Bates", "apptType": "Sick Visit", "apptTime":"2010-02-19T12:02:00" , "status": "Checked in 9:57 AM", "wait": "00:05" },
+    { "patientName": "Murphy, Alicia", "resource": "Mc Coy Henry", "apptType": "Sick Visit", "apptTime":"1995-10-04T03:27:00" , "status": "", "wait": "" },
+    { "patientName": "Francis, Henry", "resource": "Mc Coy Henry", "apptType": "Sick Visit", "apptTime":"1995-10-04T03:27:00" , "status": "In Re-schedule Queue", "wait": "" },
+    { "patientName": "Pandy, Peggy", "resource": "Mc Coy Henry", "apptType": "CQM New", "apptTime":"1995-10-04T03:27:00" , "status": "", "wait": "" },
+    { "patientName": "Murphy, Alicia", "resource": "Anna Bates", "apptType": "Sick Visit", "apptTime":"1995-10-04T03:27:00" , "status": "Checked in 9:57 AM", "wait": "00:05" },
+    { "patientName": "Murphy, Alicia", "resource": "Mc Coy Henry", "apptType": "Sick Visit", "apptTime":"1995-10-04T03:27:00" , "status": "", "wait": "" },
+    { "patientName": "Murphy, Alicia", "resource": "Anna Bates", "apptType": "Sick Visit", "apptTime":"1995-10-04T03:27:00" , "status": "Checked in 9:57 AM", "wait": "00:05" },
+    { "patientName": "Murphy, Alicia", "resource": "Mc Coy Henry", "apptType": "Sick Visit", "apptTime":"1995-10-04T03:27:00" , "status": "", "wait": "" }
+]
