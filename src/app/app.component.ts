@@ -16,7 +16,9 @@ export class AppComponent {
   scrollMode = 'vertical';
   objRowDataStr: any;
   objColDefsStr: any;
-
+  
+  
+  
   // patients json data 
   rowData: any[] = patients;
   
