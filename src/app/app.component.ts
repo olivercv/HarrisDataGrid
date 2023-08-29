@@ -87,7 +87,6 @@ export class AppComponent {
     if (allColumns && allColumns.length > 0) {
       for (let i = 0; i < allColumns.length; i++) {
         let column = allColumns[i];
-        console.log('column ', column.getMinWidth())
         totalColsWidth += column.getMinWidth() || 0;
         if (totalColsWidth > gridWidth) {
           columnsToHide.push(column.getColId());
@@ -96,12 +95,8 @@ export class AppComponent {
         }
       }
     }
-    if(this.scrollMode == 'vertical'){
-      // show/hide columns based on current grid width
-      params.columnApi.setColumnsVisible(columnsToShow, true);
-      params.columnApi.setColumnsVisible(columnsToHide, false);
-     
-    }else if(this.scrollMode == 'both') {
+    // show/hide columns based on current grid width
+    if(this.scrollMode == 'both'){
       params.columnApi.setColumnsVisible(columnsToHide, true);
     } else {
       params.columnApi.setColumnsVisible(columnsToShow, true);
