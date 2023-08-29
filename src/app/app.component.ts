@@ -48,8 +48,8 @@ export class AppComponent {
       // change data from http api
       // this.rowData$ = this.http.get<any[]>('https://www.ag-grid.com/example-assets/row-data.json');
       // convert Json format to String input textbox
-      this.objRowDataStr = JSON.stringify((this.rowData));
-      this.objColDefsStr= JSON.stringify((this.colDefs));
+      this.objRowDataStr = JSON.stringify(this.rowData, undefined, 2);
+      this.objColDefsStr= JSON.stringify(this.colDefs, undefined, 2);
       
   }
 
