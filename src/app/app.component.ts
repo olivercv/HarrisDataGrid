@@ -83,9 +83,11 @@ export class AppComponent {
     // now many columns can fit (based on their minWidth)
     let totalColsWidth = 0;
     let allColumns = params.columnApi.getColumns();
+    
     if (allColumns && allColumns.length > 0) {
       for (let i = 0; i < allColumns.length; i++) {
         let column = allColumns[i];
+        console.log('column ', column.getMinWidth())
         totalColsWidth += column.getMinWidth() || 0;
         if (totalColsWidth > gridWidth) {
           columnsToHide.push(column.getColId());
@@ -94,14 +96,20 @@ export class AppComponent {
         }
       }
     }
-    
-    // show/hide columns based on current grid width
-    params.columnApi.setColumnsVisible(columnsToShow, true);
-    params.columnApi.setColumnsVisible(columnsToHide, false);
-    // fill out any available space to ensure there are no gaps
     if(this.scrollMode == 'vertical'){
-      params.api.sizeColumnsToFit();
+      // show/hide columns based on current grid width
+      params.columnApi.setColumnsVisible(columnsToShow, true);
+      params.columnApi.setColumnsVisible(columnsToHide, false);
+     
+    }else if(this.scrollMode == 'both') {
+      params.columnApi.setColumnsVisible(columnsToHide, true);
+    } else {
+      params.columnApi.setColumnsVisible(columnsToShow, true);
+      params.columnApi.setColumnsVisible(columnsToHide, false);
     }
+
+     // fill out any available space to ensure there are no gaps
+     params.api.sizeColumnsToFit();
    
   }
 
